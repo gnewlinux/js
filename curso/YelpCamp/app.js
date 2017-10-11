@@ -7,11 +7,10 @@ var express 	= require("express"),
 
 
 
-seedDB();
 mongoose.connect("mongodb://localhost/YelpCamp"); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-
+seedDB();
 
 //Campground.create(
 //	{

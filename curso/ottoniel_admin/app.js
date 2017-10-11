@@ -57,17 +57,7 @@ app.get("/cadastro_salas", function(req, res){
 	});
 });
 
-app.get("/salas", function(req, res){
-	Salas.find({}, function(err, salas){
-		if(err){
-			console.log(err);
-		} else {
-			res.render("/cadastro_salas", {salas:salas});
-		}
-	});
-});
-
-app.post("/salas", function(req, res){
+app.post("/cadastro_salas", function(req, res){
 	// req.body.blog.body = req.sanitize(req.body.blog.body);
 	 Salas.create(req.body.salas, function(err, newSalas){
 	 	if(err){
@@ -79,7 +69,7 @@ app.post("/salas", function(req, res){
 });
 
 // DELETE ROUTE
-app.delete("/salas/:id", function(req, res){
+app.delete("/cadastro_salas/:id", function(req, res){
 	Salas.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			console.log(err);
@@ -146,18 +136,19 @@ app.get("/cadastro_adm", function(req, res){
 	});
 });
 
-app.get("/adms", function(req, res){
-	adms.find({}, function(err, adms){
+// SHOW ROUTE
+app.get("/cadastro_adm/:id", function(req, res){
+	Adms.findById(req.params.id, function(err, foundAdms){
 		if(err){
 			console.log(err);
 		} else {
-			res.render("cadastro_adm", {adms:adms});
+			res.render("edit_adm", {adms:foundAdms});
 		}
-	});
+	})
 });
 
 
-app.post("/adms", function(req, res){
+app.post("/cadastro_adm", function(req, res){
 	Adms.create(req.body.adms, function(err, newAdms){
  	if(err){
  		console.log(err);
@@ -168,7 +159,7 @@ app.post("/adms", function(req, res){
 })
 
 // DELETE ROUTE
-app.delete("/adms/:id", function(req, res){
+app.delete("/cadastro_adm/:id", function(req, res){
 	Adms.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			console.log(err);
@@ -178,19 +169,10 @@ app.delete("/adms/:id", function(req, res){
 	})
 });
 
-// SHOW ROUTE
-app.get("/adms/:id", function(req, res){
-	Adms.findById(req.params.id, function(err, foundAdms){
-		if(err){
-			console.log(err);
-		} else {
-			res.render("edit_adm", {adms:foundAdms});
-		}
-	})
-});
+
 
 // EDIT ROUTE
-app.get("/adms/:id/edit", function(req, res){
+app.get("/cadastro_adm/:id/edit", function(req, res){
 	Adms.findById(req.params.id, function(err, foundAdms){
 		if(err){
 			console.log(err);
@@ -201,12 +183,12 @@ app.get("/adms/:id/edit", function(req, res){
 });
 
 // UPDATE ROUTE
-app.put("/adms/:id", function(req, res){
+app.put("/cadastro_adm/:id", function(req, res){
 	Adms.findByIdAndUpdate(req.params.id, req.body.adms, function(err, updateAdm){
 		if(err){
 			console.log(err);
 		} else {
-			res.redirect("/adms/" + req.params.id)
+			res.redirect("/cadastro_adm")
 		}
 	});
 });

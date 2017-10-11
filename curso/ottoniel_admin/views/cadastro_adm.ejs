@@ -2,7 +2,7 @@
 
 <div class="ui main text container segment">
 	<div class="ui hude header">Cadastro de Adms</div>
-	<form class="ui form" action="/adms" method="POST">
+	<form class="ui form" action="/cadastro_adm" method="POST">
 		<div class="field">
 			<label>Nome: </label>
 			<input type="text" name="adms[nome]" placeholder="Nome do Adm">
@@ -25,8 +25,8 @@
 	
 	<p>Nome Adm: <%=adm.nome%></p>
 	<p>Usuário: <%=adm.user%></p>
-	<form action="/adms/<%=adm._id%>?_method=DELETE" method="POST">
-		<a class="ui orange basic button" href="/adms/<%=adm._id%>/edit">Edit</a>
+	<form action="/cadastro_adm/<%=adm._id%>?_method=DELETE" method="POST">
+		<a class="ui orange basic button" href="/cadastro_adm/<%=adm._id%>/edit">Edit</a>
 		<button class="ui red invert button">Delete</button>
 	</form>
 	
