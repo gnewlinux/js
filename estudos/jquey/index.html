@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tranform Jequery</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+	<style>
+		#quadrado {
+			width: 30px;
+			height: 30px;
+			left: 0;
+			margin: 20px;
+			background-color: red;
+			position: relative;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="quadrado"></div>
+
+	<input type="button" name="btn" id="btnBack" value="<">
+	<input type="button" name="btn" id="btnFront" value=">">
+
+
+</body>
+
+<script>
+	
+	var quadrado = $("#quadrado");
+
+	$("#btnBack").click(function(event) {
+		quadrado.animate({
+		left: 0
+		}, 1000)	
+	});
+
+	$("#btnFront").click(function(event) {
+		quadrado.animate({
+		left: 300
+		}, 1000)	
+	});
+	
+	
+
+</script>
+
+</html>

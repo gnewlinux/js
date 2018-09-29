@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Writer</title>
+	<style>
+		
+		body {
+			background-color: black;
+		}
+
+		h1 {
+			color: white;
+			text-align: center;
+			width: 500px;
+			margin: auto;
+			margin-top: 30px;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<h1>Seja bem vindo a minha máquina de escrever...</h1>
+
+	<script>
+		
+		const letras = document.querySelector("h1");
+
+		function maquinaEscrever(elemento) {
+			const letra = elemento.innerHTML.split('');
+			elemento.innerHTML = '';
+			letra.forEach((l, i) => {
+				setTimeout(() => elemento.innerHTML += l, 100 * i);
+			});
+		}
+
+		maquinaEscrever(letras);
+
+	</script>
+
+</body>
+</html>
